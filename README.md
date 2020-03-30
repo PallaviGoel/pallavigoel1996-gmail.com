@@ -144,6 +144,33 @@ public class ViewOfTrees {
 		System.out.println(map.values());	
 	}
 	
+	private void levelOrder(Node root)
+	{
+		if(root==null)
+			return;
+		
+		Queue<Node> q= new LinkedList<>();
+		q.add(root);
+		
+		while(!q.isEmpty())
+		{
+			
+			Node temp=q.poll();
+			System.out.println(temp.data);
+			
+			if(temp.left!=null)
+			{
+				q.add(temp.left);
+			}
+			if(temp.right!=null)
+			{
+				q.add(temp.right);
+			}
+		}	
+		
+		
+	}
+	
 	
 	public static void main(String args[])
 	{
@@ -158,7 +185,7 @@ public class ViewOfTrees {
 		 view.root.left.left.right=new Node(7);
 		 
 		 
-		 
+		view.levelOrder(view.root);
 		view.topView(view.root);
 		view.bottomView(view.root);
 		System.out.println("LEFT");
